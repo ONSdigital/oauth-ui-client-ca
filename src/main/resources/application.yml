@@ -1,0 +1,22 @@
+
+
+server:
+  port: 8082
+  context-path: /
+  session:
+    cookie:
+      name: UISESSION
+
+security:
+  basic:
+    enabled: false
+
+  oauth2:
+    client:
+      clientId: oauth-ui
+      clientSecret: 6a25d8d8-deb4-498f-8f07-369c797f5e4b
+      accessTokenUri: https://localhost:8443/auth/oauth/v2/token
+      userAuthorizationUri: https://localhost:8443/auth/oauth/v2/authorize
+    resource:
+      tokenInfoUri: https://localhost:8443/auth/oauth/v2/token
+

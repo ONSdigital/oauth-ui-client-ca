@@ -1,18 +1,20 @@
-<#import "/spring.ftl" as spring>
 
-<html>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>OAuth UI client Demo</title>
-    <link rel="stylesheet" type="text/css" href="app.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}" href="../../css/app.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
 <div class="App">
     <header class="App-header">
-        <img src="ons_logo.svg" class="App-logo" alt="logo"/>
+        <img src="/ons_logo.svg" class="App-logo" alt="logo"/>
         <h1 class="App-title">Demo OAuth Client Application</h1>
     </header>
-    <h3>Welcome ${principal.getName()}, here is your shopping list</h3>
+    <h3>Welcome ${#authentication.name}, here is your shopping list</h3>
     <table class="blueTable">
         <thead>
         <tr>
