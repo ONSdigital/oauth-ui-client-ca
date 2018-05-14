@@ -10,8 +10,12 @@ import java.util.Map;
 @Controller
 public class ProductController {
 
+    private final ProductService products;
+
     @Autowired
-    ProductService products;
+    public ProductController(ProductService products) {
+        this.products = products;
+    }
 
     @RequestMapping("/")
     public String welcome(Map<String, Object> model) {
