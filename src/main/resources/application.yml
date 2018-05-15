@@ -1,22 +1,32 @@
-
-
 server:
   port: 8082
-  context-path: /
-  session:
-    cookie:
-      name: UISESSION
+  servlet:
+    contextPath: /ons
+  ssl:
+    key-store: /Users/paul/ONS/oauth-ui-client-ca/keystore.p12
+    key-store-password: onsonsons
+    keyStoreType: PKCS12
+    keyAlias: tomcat
+
+logging.level.org.springframework.web: DEBUG
 
 security:
   basic:
     enabled: false
-
   oauth2:
     client:
-      clientId: oauth-ui
-      clientSecret: 6a25d8d8-deb4-498f-8f07-369c797f5e4b
+      clientId: e7fd5847-7063-407e-be2d-80bed8130d4b
+      clientSecret: 24fedc09-d920-459b-90ac-75402e0167bd
       accessTokenUri: https://localhost:8443/auth/oauth/v2/token
       userAuthorizationUri: https://localhost:8443/auth/oauth/v2/authorize
-    resource:
-      tokenInfoUri: https://localhost:8443/auth/oauth/v2/token
+      tokenName: oauth_token
+      grantType: client_credentials
+      scope:
+        - profile
+        - openid
+        - email
+        - phone
+        - address
 
+    resource:
+      tokenInfoUri: https://localhost:8443/openid/connect/v1/userinfo

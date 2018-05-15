@@ -12,12 +12,19 @@ public class CASecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
 
-        http.antMatcher("/**")
+        http
+                .antMatcher("/**")
                 .authorizeRequests()
-                .antMatchers("/", "/login**")
+                .antMatchers("/",
+                        "/login**",
+                        "/webjars/**",
+                        "/error**",
+                        "/images/**",
+                        "/css/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();
-
     }
+
 }
+
