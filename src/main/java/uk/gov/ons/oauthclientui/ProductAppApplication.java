@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.context.request.RequestContextListener;
 
+import javax.net.ssl.HttpsURLConnection;
+
 @SpringBootApplication
 public class ProductAppApplication {
 
@@ -16,4 +18,10 @@ public class ProductAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProductAppApplication.class, args);
 	}
+
+    public ProductAppApplication() {
+        HttpsURLConnection.setDefaultHostnameVerifier((hostname, sslSession) ->
+                hostname.equals("localhost"));
+    }
+
 }

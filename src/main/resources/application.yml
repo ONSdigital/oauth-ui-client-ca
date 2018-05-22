@@ -2,31 +2,33 @@ server:
   port: 8082
   servlet:
     contextPath: /ons
+
   ssl:
-    key-store: /Users/paul/ONS/oauth-ui-client-ca/keystore.p12
+    key-store: /Users/paul/bigmac.p12
     key-store-password: onsonsons
     keyStoreType: PKCS12
-    keyAlias: tomcat
+    keyAlias: bigmac.local
 
-logging.level.org.springframework.web: DEBUG
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: DEBUG
+    org.springframework.security.oauth2: DEBUG
 
 security:
-  basic:
-    enabled: false
   oauth2:
     client:
-      clientId: e7fd5847-7063-407e-be2d-80bed8130d4b
-      clientSecret: 24fedc09-d920-459b-90ac-75402e0167bd
+      clientId: ui-test
+      clientSecret: ui-secret
       accessTokenUri: https://localhost:8443/auth/oauth/v2/token
       userAuthorizationUri: https://localhost:8443/auth/oauth/v2/authorize
-      tokenName: oauth_token
-      grantType: client_credentials
       scope:
         - profile
         - openid
         - email
         - phone
-        - address
 
     resource:
-      tokenInfoUri: https://localhost:8443/openid/connect/v1/userinfo
+      user-info-uri: https://localhost:8443/openid/connect/v1/userinfo

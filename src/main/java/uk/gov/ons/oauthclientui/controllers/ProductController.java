@@ -1,14 +1,14 @@
 package uk.gov.ons.oauthclientui.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
 import uk.gov.ons.oauthclientui.service.ProductService;
 
-import java.security.Principal;
 import java.util.Map;
 
-@RestController
+@Controller
 public class ProductController {
 
     private final ProductService products;
@@ -18,15 +18,10 @@ public class ProductController {
         this.products = products;
     }
 
-    @RequestMapping("/products")
+    @RequestMapping(value = "/products", method = RequestMethod.GET)
     public String products(Map<String, Object> model) {
-        model.put("products", products);
+        model.put("products", products.getProducts());
         return "products";
-    }
-
-    @RequestMapping("/user")
-    public Principal user(Principal principal) {
-        return principal;
     }
 
 }

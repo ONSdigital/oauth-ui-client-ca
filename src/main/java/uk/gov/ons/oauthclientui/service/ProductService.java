@@ -2,28 +2,26 @@ package uk.gov.ons.oauthclientui.service;
 
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Component
 public class ProductService {
-    public Map<String, String> getProducts() {
+    public List<Product> getProducts() {
 
-        HashMap<String, String> h = new HashMap<>();
+        ArrayList<Product> product = new ArrayList<>();
 
-        h.put("Samsung 4k TV", "£1500");
-        h.put("Apple Macbook Pro 13&quot/512GB/16GB", "£1750");
-        h.put("Samsung Galaxy S9", "£799");
-        h.put("iPhone X", "£899");
-        h.put("Synology NAS", "£800");
-        h.put("Jaguar F-Type, V8", "£89,000");
-        h.put("Iiyama 4k Monitor", "£450");
-        h.put("Pair of Jeans", "£49");
-        h.put("Thinkpad", "£1500");
-        h.put("Water Bottle", "£2");
+        product.add(new Product("Samsung 4k TV", 1500));
+        product.add(new Product("Apple Macbook Pro 13&quot/512GB/16GB", 1750));
+        product.add(new Product("Samsung Galaxy S9", 799));
+        product.add(new Product("iPhone X", 899));
+        product.add(new Product("Synology NAS", 800));
+        product.add(new Product("Jaguar F-Type, V8", 89000));
+        product.add(new Product("Iiyama 4k Monitor", 450));
+        product.add(new Product("Pair of Jeans", 49));
+        product.add(new Product("Thinkpad P52", 1500));
+        product.add(new Product("Water Bottle", 2));
         
-        return h;
+        return product;
     }
 }

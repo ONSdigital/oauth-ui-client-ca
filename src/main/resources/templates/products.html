@@ -1,38 +1,50 @@
-
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>OAuth UI client Demo</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}" href="../../css/app.css"/>
-    <link rel="stylesheet" type="text/css"
-          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>OAuth UI Client Demo</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+    <base href="/ons"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <script type="text/javascript" th:href="@{/webjars/jquery/jquery.min.js}"></script>
+    <script type="text/javascript" th:href="@{/webjars/bootstrap/bootstrap/js/bootstrap.min.js}"></script>
 </head>
+
 <body>
 <div class="App">
     <header class="App-header">
-        <img src="ons_logo.svg" class="App-logo" alt="logo"/>
+        <img th:src="@{/images/ons_logo.svg}" class="App-logo" alt="logo"/>
         <h1 class="App-title">Demo OAuth Client Application</h1>
     </header>
-    <h3>Welcome ${#authentication.name}, here is your shopping list</h3>
-    <table class="blueTable">
-        <thead>
-        <tr>
-            <th>Item Description</th>
-            <th>Budgeted Cost</th>
-        </tr>
-        </thead>
-            <#list products as key, value>
+    <h3 style="padding-top: 15px; padding-bottom: 15px;">Welcome <span th:text="${#authentication.name}"></span>, here is your shopping list</h3>
+
+    <div class="mt-30 container" style="width: 35%">
+
+        <div th:if="${not #lists.isEmpty(products)}">
+            <table class="table table-sm table-hover">
+                <thead>
                 <tr>
-                    <td>${key}</td>
-                    <td align="right">${value}</td>
+                    <th class="bg-primary" align="left">Item Description</th>
+                    <th class="bg-primary" align="right">Budgeted Cost</th>
                 </tr>
-            </#list>
+                </thead>
+                <tr th:each="prod : ${products}">
+                    <td align="left"><span th:inline="text"> [[${prod.description}]]</span></td>
+                    <td align="right"><span th:inline="text">£ [[${#numbers.formatDecimal(prod.cost, 0, 'COMMA', 2, 'POINT')}]]</span></td>
+                </tr>
+            </table>
+        </div>
 
-    </table>
+    </div>
 
+    <br/>
+    <br/>
     <p>
-        <a href="/logout">Logout</a>
+        <a class="btn btn-primary" th:href="@{/logout}">Logout</a>
     </p>
 </div>
 </body>
