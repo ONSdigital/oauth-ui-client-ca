@@ -22,7 +22,7 @@
     </header>
     <h3 style="padding-top: 15px; padding-bottom: 15px;">Welcome <span th:text="${#authentication.name}"></span>, here is your shopping list</h3>
 
-    <div class="mt-30 container" style="width: 35%">
+    <div class="mt-30 container" style="width: 45%">
 
         <div th:if="${not #lists.isEmpty(products)}">
             <table class="table table-sm table-hover">

@@ -12,7 +12,7 @@ public class ProductService {
         ArrayList<Product> product = new ArrayList<>();
 
         product.add(new Product("Samsung 4k TV", 1500));
-        product.add(new Product("Apple Macbook Pro 13&quot/512GB/16GB", 1750));
+        product.add(new Product("Apple Macbook Pro 13\"/512GB/16GB", 1750));
         product.add(new Product("Samsung Galaxy S9", 799));
         product.add(new Product("iPhone X", 899));
         product.add(new Product("Synology NAS", 800));

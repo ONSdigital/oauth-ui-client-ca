@@ -16,6 +16,7 @@ logging:
     org.springframework.security: DEBUG
     org.springframework.boot.autoconfigure: DEBUG
     org.springframework.security.oauth2: DEBUG
+    uk.gov.ons.oauthclientui.configuration: DEBUG
 
 security:
   oauth2:
