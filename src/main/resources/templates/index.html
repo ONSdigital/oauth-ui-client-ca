@@ -5,7 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>OAuth UI Client Demo</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/application.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/stylesheets/govuk-template.css}"/>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width"/>
     <base href="/ons"/>
@@ -18,14 +19,14 @@
 </head>
 
 <body>
-<div class="App">
-    <header class="App-header">
+<div class="app">
+    <header class="header">
         <span href='document.location.href="/";'>
-            <img th:src="@{/images/ons_logo.svg}" class="App-logo" alt="logo"/>
+            <img th:src="@{/images/ons_logo.svg}" class="logo" alt="Office of National Statistics"/>
         </span>
-        <h1 class="App-title">Demo OAuth Client Application</h1>
+        <h1 class="title">Demo OAuth Client Application</h1>
     </header>
-    <p class="App-intro"></p>
+    <p class="intro"></p>
 
     <div class="container unauthenticated" style="margin-top: 50px;">
         <h4>Click on the link below to view your shopping list</h4>

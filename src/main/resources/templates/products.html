@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>OAuth UI Client Demo</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/application.css}"/>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width"/>
     <base href="/ons"/>
@@ -15,10 +15,10 @@
 </head>
 
 <body>
-<div class="App">
-    <header class="App-header">
-        <img th:src="@{/images/ons_logo.svg}" class="App-logo" alt="logo"/>
-        <h1 class="App-title">Demo OAuth Client Application</h1>
+<div class="app">
+    <header class="header">
+        <img th:src="@{/images/ons_logo.svg}" class="logo" alt="Office of National Statistics"/>
+        <h1 class="title">Demo OAuth Client Application</h1>
     </header>
     <h3 style="padding-top: 15px; padding-bottom: 15px;">Welcome <span th:text="${#authentication.name}"></span>, here is your shopping list</h3>
 
